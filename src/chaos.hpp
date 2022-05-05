@@ -42,14 +42,14 @@ struct roessler
 
 	float	delta = 0.01f;
     
-    void    iterate();
+    	void    iterate();
 };
 
 void roessler::iterate()
 {
-	x += (-y - z)*delta;
-	y += (x + a * y)*delta;
-	z += (b + z * (x - c))*delta;
+	x += (-y - z) * delta;
+	y += (x + a * y) * delta;
+	z += (b + z * (x - c)) * delta;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -60,9 +60,9 @@ struct hopf
 	float	y = 0.01f;
 
 	float	p = 0.11f;
-    float   t = 0.01f;
+    	float   t = 0.01f;
 
-    void    iterate();
+    	void    iterate();
 };
 
 void hopf::iterate()
@@ -77,20 +77,20 @@ struct helmholz
 {
 	float	x = 0.1f;
 	float	y = 0.1f;
-    float   z = 0.1f;
+    	float   z = 0.1f;
 
 	float	gamma = 5.11f;
 	float	delta = 0.55f;
-    float   t     = 0.01;
+    	float   t     = 0.01;
     
-    void    iterate();
+    	void    iterate();
 };
 
 void helmholz::iterate()
 {
 	x += t * y;
 	y += t * gamma * z;
-    z += t * ( -z - delta * y - x - x * x );
+    	z += t * ( -z - delta * y - x - x * x );
 }
 
 
@@ -100,18 +100,18 @@ struct sprott
 {
 	float	x = 0.1f;
 	float	y = 0.1f;
-    float   z = 0.1f;
+    	float   z = 0.1f;
 
-    float   t = 0.1;
+    	float   t = 0.1;
     
-    void    iterate();
+    	void    iterate();
 };
 
 void sprott::iterate()
 {
 	x += t * y;
 	y += t * (y * z - x);
-    z += t * (1.0f - y * y);
+    	z += t * (1.0f - y * y);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -120,19 +120,19 @@ struct linz
 {
 	float	x = 0.1f;
 	float	y = 0.1f;
-    float   z = 0.1f;
+    	float   z = 0.1f;
 
-    float   a = 0.5f;
-    float   t = 0.1;
+    	float   a = 0.5f;
+    	float   t = 0.1;
     
-    void    iterate();
+    	void    iterate();
 };
 
 void linz::iterate()
 {
 	x += t * (y + z);
 	y += t * (y * a - x);
-    z += t * (x * x - z);
+    	z += t * (x * x - z);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -141,19 +141,19 @@ struct linz_d
 {
 	float	x = 0.1f;
 	float	y = 0.1f;
-    float   z = 0.1f;
+    	float   z = 0.1f;
 
-    float   a = 3.0f;
-    float   t = 0.01;
+    	float   a = 3.0f;
+    	float   t = 0.01;
     
-    void    iterate();
+    	void    iterate();
 };
 
 void linz_d::iterate()
 {
 	x += t * (-y);
 	y += t * (x + z);
-    z += t * (x * z + a*y*y);
+    	z += t * (x * z + a*y*y);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -162,22 +162,22 @@ struct sprott_st
 {
 	float	x = 0.1f;
 	float	y = 0.1f;
-    float   z = 0.1f;
+    	float   z = 0.1f;
 
 	float	a = 0.8f;
 	float	b = 0.5f;
-    float   c = 0.1f;
-    float   d = 1.0f;
-    float   t = 0.01f;
+    	float   c = 0.1f;
+    	float   d = 1.0f;
+    	float   t = 0.01f;
     
-    void    iterate();
+    	void    iterate();
 };
 
 void sprott_st::iterate()
 {
 	x += t * y * a;
 	y += t * (- y*z - x);
-    z += t * (b * y * y - c * x - d);
+    	z += t * (b * y * y - c * x - d);
 }
 
 
@@ -187,22 +187,22 @@ struct rayleigh
 {
 	double	x = 0.01f;
 	double	y = 0.0f;
-    double  z = 0.0f;
+    	double  z = 0.0f;
 
 	float	a = 9.00f;
 	float	r = 12.0f;
-    float   b = 5.00f;
+    	float   b = 5.00f;
 
-    float   t = 0.19f;
+    	float   t = 0.19f;
     
-    void    iterate();
+    	void    iterate();
 };
 
 void rayleigh::iterate()
 {
 	x = t * (- a*x + a*y);
 	y = t * (r*x - y - x*z);
-    z = t * (x*y - b*z);
+    	z = t * (x*y - b*z);
 
 }
 
@@ -213,25 +213,25 @@ struct wang
 {
 	float	x = 0.1f;
 	float	y = 0.1f;
-    float   z = 0.1f;
-    float   w;
+    	float   z = 0.1f;
+    	float   w;
 
 	float	a = 27.5f;
 	float	b = 3.0f;
-    float   c = 19.3f;
-    float   d = 3.3f;
-    float   h = 2.9f;
-    float   t = 0.001;
+    	float   c = 19.3f;
+    	float   d = 3.3f;
+    	float   h = 2.9f;
+    	float   t = 0.001;
     
-    void    iterate();
+    	void    iterate();
 };
 
 void wang::iterate()
 {
 	x += t * a * (y - x);
 	y += t * (b * x + c * y - x * z + w);
-    z += t * (y * y - h * z);
-    w  = d * -y;
+    	z += t * (y * y - h * z);
+    	w  = d * -y;
 }
 
 
@@ -241,23 +241,23 @@ struct yu_wang
 {
 	float	x = 0.1f;
 	float	y = 0.1f;
-    float   z = 0.1f;
+    	float   z = 0.1f;
 
 	float	a = 10.0f;
 	float	b = 40.0f;
-    float   c = 2.0f;
-    float   d = 2.5f;
+    	float   c = 2.0f;
+    	float   d = 2.5f;
 
-    float   t = 0.001;
+    	float   t = 0.001;
     
-    void    iterate();
+    	void    iterate();
 };
 
 void yu_wang::iterate()
 {
 	x += t * a * (y - x);
 	y += t * (b * x - c * x * z);
-    z += t * (pow(M_E, x*y) - d * z);
+    	z += t * (pow(M_E, x*y) - d * z);
 
 }
 
@@ -268,24 +268,24 @@ struct tsucs
 {
 	float	x = 1.0f;
 	float	y = 1.0f;
-    float   z = 1.0f;
+    	float   z = 1.0f;
 
 	float	a = 40.0f;
 	float	b = 0.5f;
-    float   c = 20.0f;
-    float   d = 0.833f;
-    float   e = 0.65f;
+    	float   c = 20.0f;
+    	float   d = 0.833f;
+    	float   e = 0.65f;
 
-    float   t = 0.001;
+    	float   t = 0.001;
     
-    void    iterate();
+    	void    iterate();
 };
 
 void tsucs::iterate()
 {
 	x += t * (a*(y-x) + b*x*z);
 	y += t * (c*y - x*z);
-    z += t * (d*z + x*y - e*x*x);
+    	z += t * (d*z + x*y - e*x*x);
 }
 
 
@@ -295,25 +295,25 @@ struct tsucs2
 {
 	float	x = 1.0f;
 	float	y = 1.0f;
-    float   z = 1.0f;
+    	float   z = 1.0f;
 
 	float	a = 40.0f;
 	float	b = 0.16f;
-    float   c = 55.0f;
-    float   d = 20.0f;
-    float   e = 1.833f;
-    float   f = 0.65f;
+    	float   c = 55.0f;
+    	float   d = 20.0f;
+    	float   e = 1.833f;
+    	float   f = 0.65f;
 
-    float   t = 0.001;
+    	float   t = 0.001;
     
-    void    iterate();
+    	void    iterate();
 };
 
 void tsucs2::iterate()
 {
 	x += t * (a*(y-x) + b*x*z);
 	y += t * (c*y - x*z + d*y);
-    z += t * (e*z + x*y - f*x*x);
+    	z += t * (e*z + x*y - f*x*x);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -428,20 +428,20 @@ struct henon
 {
 	float x;
 	float y;
-    float dy, dx;
+    	float dy, dx;
 
 	float a = 1.4f;
 	float b = 0.3f;
 
-    float t = 1.0f;
+    	float t = 1.0f;
 
 	void iterate()
 	{
 		dx = t * (1.0f - a * x * x + y);
 		dy = t * b * x;
 
-        x = dx;
-        y = dy;
+        	x = dx;
+        	y = dy;
 	}
 };
 
@@ -467,7 +467,7 @@ struct vanderpol
 	float x = 0.1f;
 	float y = 0.1f;
 	float f = 1.2f;
-    float t = 0.1f;
+    	float t = 0.1f;
 	float m = 1.0f;
 
 	void iterate();
@@ -485,9 +485,9 @@ struct kaplan_yorke
 {
 	float x;
 	float y;
-    int a   = 0xFFFFFFFF;
-    int b   = 2147483647;
-    float t = 0.1f;
+    	int a   = 0xFFFFFFFF;
+    	int b   = 2147483647;
+    	float t = 0.1f;
 	float alpha;
 
 	void iterate();
@@ -495,10 +495,10 @@ struct kaplan_yorke
 
 void kaplan_yorke::iterate()
 {
-    int aa = 2 * a % b;
+    	int aa = 2 * a % b;
 	x += t * (float(a) / float(b));
 	y += t * (alpha*y + cos(4.0f * M_PI * x));
-    a = aa;
+    	a = aa;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -649,3 +649,23 @@ void realchua::iterate()
     ydot = (1/C2)*(G*(x-y)+z);
     zdot  = -(1/L)*y;
 }
+
+struct julia
+{
+    float zx = 1.2, zy = 0.8;
+    float cx = 0.2, cy = 0.3;
+
+    float t = 0.1f;
+
+    void iterate()
+    {
+        float   xm = t * (zx * zx - zy * zy);
+                zy = t * (2.0f * zx * zy  + cy) ;
+                zx = t * (xm + cx);
+    }
+
+};
+
+
+
+
